@@ -762,11 +762,24 @@ a.ci-value:hover { color: var(--orange); }
 }
 .footer-contact a:hover { color: var(--orange); }
 
+.footer-license {
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.75);
+  padding-top: 24px;
+  letter-spacing: 0.02em;
+}
+.footer-license strong {
+  color: var(--orange);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
 .footer-copy {
   text-align: center;
   font-size: 0.85rem;
   color: rgba(255,255,255,0.5);
-  padding-top: 24px;
+  padding-top: 8px;
 }
 
 /* =========================================
