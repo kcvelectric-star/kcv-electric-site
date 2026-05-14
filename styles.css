@@ -347,6 +347,176 @@ section { padding: 90px 0; }
 .card-link:hover { color: var(--orange-light); }
 
 /* =========================================
+   Gallery
+   ========================================= */
+.gallery { background: var(--cream); }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.gallery-item {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+.gallery-item:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.gallery-img {
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.gallery-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.05), rgba(0,0,0,0.2));
+}
+.gallery-img svg { position: relative; z-index: 1; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
+.gallery-img--1 { background: linear-gradient(135deg, var(--orange), var(--orange-dark)); }
+.gallery-img--2 { background: linear-gradient(135deg, var(--charcoal), var(--charcoal-light)); }
+.gallery-img--3 { background: linear-gradient(135deg, var(--orange-dark), var(--charcoal)); }
+.gallery-img--4 { background: linear-gradient(135deg, var(--charcoal-light), var(--orange)); }
+.gallery-img--5 { background: linear-gradient(135deg, var(--charcoal-dark), var(--orange-dark)); }
+.gallery-img--6 { background: linear-gradient(135deg, var(--orange-light), var(--orange-dark)); }
+
+.gallery-item figcaption { padding: 22px; }
+.gallery-item h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 6px;
+}
+.gallery-item p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+.gallery-note {
+  text-align: center;
+  margin-top: 36px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* =========================================
+   Testimonials
+   ========================================= */
+.testimonials { background: var(--white); }
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.testimonial-card {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  position: relative;
+  transition: all 0.3s;
+}
+.testimonial-card:hover {
+  border-color: var(--orange);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.testimonial-card::before {
+  content: '\201C';
+  position: absolute;
+  top: 8px; right: 22px;
+  font-family: 'Poppins', serif;
+  font-size: 4rem;
+  color: var(--orange);
+  opacity: 0.25;
+  line-height: 1;
+}
+
+.stars {
+  color: var(--orange);
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+
+.testimonial-card blockquote {
+  font-size: 1rem;
+  color: var(--charcoal);
+  line-height: 1.65;
+  margin-bottom: 18px;
+}
+
+.testimonial-author {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+}
+.testimonial-author strong {
+  font-weight: 700;
+  color: var(--charcoal);
+  font-size: 0.98rem;
+}
+.testimonial-author span {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* =========================================
+   Service Area map
+   ========================================= */
+.map-wrap {
+  margin-top: 48px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 4px solid rgba(220,90,42,0.6);
+}
+.map-wrap iframe { display: block; }
+
+/* =========================================
+   Social links (footer)
+   ========================================= */
+.social-links {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  justify-content: flex-end;
+}
+.social-links a {
+  width: 38px; height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+  color: rgba(255,255,255,0.8);
+  transition: all 0.2s;
+}
+.social-links a:hover {
+  background: var(--orange);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* =========================================
    About
    ========================================= */
 .about { background: var(--cream); }
@@ -635,6 +805,7 @@ a.ci-value:hover { color: var(--orange); }
   .contact-grid,
   .footer-inner { grid-template-columns: 1fr; gap: 40px; }
   .footer-contact { text-align: left; }
+  .social-links { justify-content: flex-start; }
   section { padding: 70px 0; }
   .hero { padding: 60px 0 80px; }
 }

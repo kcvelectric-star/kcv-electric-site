@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kcvelectric-star.github.io/kcv-electric-site/sitemap.xml
