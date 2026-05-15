@@ -690,8 +690,16 @@
           </li>
         </ul>
       </div>
-      <form class="contact-form" action="mailto:kcv.electric@gmail.com" method="post" enctype="text/plain">
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/mwvydnjk" method="POST">
         <h3 data-en="Request a Free Estimate" data-es="Pedir un Estimado Gratis">Request a Free Estimate</h3>
+        <div class="form-alert form-alert--success" id="formSuccess" hidden>
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5-5-5 1.41-1.41L10 13.67l7.59-7.59L19 7.5l-9 9z"/></svg>
+          <span data-en="Message sent! We'll call or text you shortly." data-es="¡Mensaje enviado! Te llamaremos o escribiremos pronto.">Message sent! We'll call or text you shortly.</span>
+        </div>
+        <div class="form-alert form-alert--error" id="formError" hidden>
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+          <span data-en="Something went wrong. Please call us at (209) 765-7013." data-es="Algo salió mal. Por favor llámanos al (209) 765-7013.">Something went wrong. Please call us at (209) 765-7013.</span>
+        </div>
         <label>
           <span data-en="Your Name" data-es="Tu Nombre">Your Name</span>
           <input type="text" name="name" required />
@@ -718,7 +726,13 @@
           <span data-en="Describe Your Project" data-es="Describe Tu Proyecto">Describe Your Project</span>
           <textarea name="message" rows="4" required></textarea>
         </label>
-        <button type="submit" class="btn btn-primary btn-lg" data-en="Send Message" data-es="Enviar Mensaje">Send Message</button>
+        <button type="submit" class="btn btn-primary btn-lg" id="formSubmitBtn">
+          <span class="btn-label" data-en="Send Message" data-es="Enviar Mensaje">Send Message</span>
+          <span class="btn-loading" hidden>
+            <svg class="spin-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 4V2A10 10 0 0 0 2 12h2a8 8 0 0 1 8-8z"/></svg>
+            <span data-en="Sending…" data-es="Enviando…">Sending…</span>
+          </span>
+        </button>
         <p class="form-note" data-en="Or call directly: (209) 765-7013" data-es="O llama directo: (209) 765-7013">Or call directly: (209) 765-7013</p>
       </form>
     </div>

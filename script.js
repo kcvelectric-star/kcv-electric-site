@@ -92,6 +92,52 @@
   // Footer year
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  // Contact form — Formspree AJAX submission
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    const submitBtn = document.getElementById('formSubmitBtn');
+    const btnLabel = submitBtn && submitBtn.querySelector('.btn-label');
+    const btnLoading = submitBtn && submitBtn.querySelector('.btn-loading');
+    const successBox = document.getElementById('formSuccess');
+    const errorBox = document.getElementById('formError');
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Show loading state
+      if (btnLabel) btnLabel.hidden = true;
+      if (btnLoading) btnLoading.hidden = false;
+      if (submitBtn) submitBtn.disabled = true;
+      if (successBox) successBox.hidden = true;
+      if (errorBox) errorBox.hidden = true;
+
+      try {
+        const res = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { Accept: 'application/json' },
+        });
+
+        if (res.ok) {
+          contactForm.reset();
+          if (successBox) {
+            successBox.hidden = false;
+            successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        } else {
+          if (errorBox) errorBox.hidden = false;
+        }
+      } catch {
+        if (errorBox) errorBox.hidden = false;
+      }
+
+      // Restore button
+      if (btnLabel) btnLabel.hidden = false;
+      if (btnLoading) btnLoading.hidden = true;
+      if (submitBtn) submitBtn.disabled = false;
+    });
+  }
+
   // Smooth-scroll offset for sticky header
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (e) => {

@@ -990,6 +990,32 @@ a.ci-value:hover { color: var(--orange); }
   margin-top: 14px;
 }
 
+.form-alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.form-alert--success {
+  background: #F0FDF4;
+  border: 1px solid #86EFAC;
+  color: #166534;
+}
+.form-alert--error {
+  background: #FFF1F2;
+  border: 1px solid #FDA4AF;
+  color: #9F1239;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.spin-icon { animation: spin 0.8s linear infinite; }
+
 /* =========================================
    Footer
    ========================================= */
